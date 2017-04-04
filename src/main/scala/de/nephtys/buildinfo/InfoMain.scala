@@ -20,8 +20,4 @@ object InfoMain extends App{
     Thread.sleep(10)
   })
 
-
-
-  val status = Git.open(new File(".")).status().call().getModified.toArray.toList
-  println(status)
 }

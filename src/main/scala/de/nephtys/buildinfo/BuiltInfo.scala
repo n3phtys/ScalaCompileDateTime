@@ -23,7 +23,7 @@ object BuiltInfo{
 
   def DateStr() : String = macro date_impl
 
-  def GitShortCommitHexcode() : String = macro git_impl
+  def GitShortCommitHexcode() : String = CurrentInfo.GitShortCommitHexcode() //causes 128 error code in macro: macro git_impl
 
 
   def date_impl(c: blackbox.Context)():c.Expr[String] = {

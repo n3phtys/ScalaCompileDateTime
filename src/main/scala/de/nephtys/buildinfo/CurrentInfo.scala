@@ -1,6 +1,7 @@
 package de.nephtys.buildinfo
 
 import java.io.File
+import java.nio.file.{Files, Paths}
 import java.time.LocalDateTime
 
 import org.eclipse.jgit.api.Git
@@ -22,8 +23,8 @@ object CurrentInfo {
   def GitShortCommitHexcode() : String = {
 
 
-    //val status = Git.open(new File(".")).status().call().getModified.toArray.toList
-    //println(status)
+    val status = Git.open(new File(".")).status().call().getModified.toArray.toList
+    println(status)
 
     import sys.process._
     val t = Try({
@@ -36,7 +37,8 @@ object CurrentInfo {
       case Success(e) => e
       case Failure(e) => e.getMessage
     }
-    //println(s"GitResult: $s")
     s
   }
+
+
 }
