@@ -1,6 +1,9 @@
 package de.nephtys.buildinfo
 
+import java.io.File
 import java.time.LocalDateTime
+
+import org.eclipse.jgit.api.Git
 
 import scala.util.{Failure, Success, Try}
 
@@ -9,12 +12,26 @@ import scala.util.{Failure, Success, Try}
   */
 object CurrentInfo {
 
-  def Date : LocalDateTime = LocalDateTime.now()
+  def Date() : LocalDateTime = LocalDateTime.now()
+
+  def DateStr() : String = Date().toString
 
   private final val gitcmd = "git rev-parse --short HEAD"
-  def GitShortCommitHexcode : String = {
+
+
+  def GitShortCommitHexcode() : String = {
+
+
+    //val status = Git.open(new File(".")).status().call().getModified.toArray.toList
+    //println(status)
+
     import sys.process._
-    val t = Try(gitcmd !!)
+    val t = Try({
+      val q = gitcmd !!
+
+      println(Date().toString + " : SHORT COMMIT SHA1: " + q)
+      q
+    })
     var s = t match {
       case Success(e) => e
       case Failure(e) => e.getMessage
