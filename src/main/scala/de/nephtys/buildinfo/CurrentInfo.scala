@@ -22,7 +22,7 @@ object CurrentInfo {
 
   def GitShortCommitHexcode() : String = {
 
-
+	Try( {
     val status = Git.open(new File(".")).status().call().getModified.toArray.toList
     println(status)
 
@@ -38,6 +38,7 @@ object CurrentInfo {
       case Failure(e) => e.getMessage
     }
     s
+}).toOption.getOrElse("N/A")
   }
 
 
