@@ -1,16 +1,10 @@
 package de.nephtys.buildinfo
 
 
-import java.io.File
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-
-import org.eclipse.jgit.api.Git
 
 import scala.language.experimental.macros
 import scala.language.experimental.macros
 import scala.reflect.macros.blackbox
-import scala.reflect.macros.blackbox.Context
 
 /**
   * Created by Christopher on 04.04.2017.

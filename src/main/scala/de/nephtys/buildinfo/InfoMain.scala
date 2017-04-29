@@ -1,8 +1,5 @@
 package de.nephtys.buildinfo
 
-import java.io.File
-
-import org.eclipse.jgit.api.Git
 
 /**
   * Created by Christopher on 04.04.2017.
